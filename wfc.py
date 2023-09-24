@@ -12,8 +12,9 @@ class WFC(Application):
     program_name = "WaveFunctionCollapse"
     version = "1.0"
 
-    def __init__(self):
-        self.n = 3
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
         self.entropy = {}
         self.collapsed = {}
 
@@ -42,15 +43,11 @@ class WFC(Application):
 
 
     def main(self, ctl: Control, files: Sequence[str]):
-        
-        # print(ctl._rep)
-        # ctl = Control("0")
 
         for file in files:
             ctl.load(file)
         
-        ctl.ground([("base", [Number(self.n)])])
-        ctl.ground([("step", [])])
+        ctl.ground([("base", [Number(self.width), Number(self.height)])])
 
         ctl.assign_external(
                 Function("collapsed", [
@@ -58,45 +55,50 @@ class WFC(Application):
                     Function("a")
                 ]), True)
 
-        for i in range(10):
-
-
-            # calculate super positions based on collapsed cells
+        # final_model = None
+        iteration = 1
+        while True:
+            
+            # print("Iteration", iteration)
+            # solve super positions that adhere to collapsed cells
             with ctl.solve(yield_=True) as handle:
                 self.entropy = {}
                 for model in handle:
-                    # print(i+1, "Answer set: ", model)
                     self.register_collapsed(model)
                     self.calc_entropy(model)
-                print(self.entropy)
-                if len(self.entropy) == 0: 
-                    for model in handle:
-                        print(model)
-                    break
+
+                # print(self.entropy)
+            if len(self.entropy) == 0: 
+                # for model in handle:
+                #     print(model)
+                # final_model = handle
+                # print(ctl.statistics)
+                break
 
 
-            # # pick random position and collapse it
+            # pick random position and collapse it
             minimum = len(min(self.entropy.values()))
-            # lowest_entropy = math.inf
             
-            # for super_state in sorted_super_states:
-            #     len_set = len(super_state)
-            #     if len_set > 1 and len_set < lowest_entropy:
-            #         lowest_entropy = len_set
+            state_choices = [
+                (k, v) 
+                for k, v in self.entropy.items() 
+                if len(v) == minimum
+            ]
             
-            state_choices = [(k, v) for k, v in self.entropy.items() if len(v) == minimum]
-            
-            print(state_choices)
             (r, c), state = random.choice(state_choices)
-            print(r, c, state)
+            # print(state_choices)
+            # print(r, c, state)
 
             ctl.assign_external(
                 Function("collapsed", [
                     Number(r), Number(c),
                     Function(random.choice(tuple(state)))
                 ]), True)
+            
+            iteration += 1
 
+        # print(final_model)
+        # print(ctl.statistics)
             
 
-
-clingo_main(WFC(), sys.argv[1:] + ["0"])
+clingo_main(WFC(3, 2), sys.argv[1:] + ["0", "--outf=2"])

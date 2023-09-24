@@ -1,0 +1,580 @@
+{
+  "Solver": "WaveFunctionCollapse version 1.0",
+  "Input": [
+    "test.lp"
+  ],
+  "Call": [
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,c)", "superpos(2,3,c)"
+          ]
+        }
+      ]
+    },
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,a)", "superpos(1,3,a)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        }
+      ]
+    },
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,a)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,b)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,c)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,c)"
+          ]
+        }
+      ]
+    },
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(1,3,c)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(1,3,c)", "collapsed(2,1,a)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        }
+      ]
+    },
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(1,3,c)", "collapsed(2,1,a)", "collapsed(2,3,b)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,b)", "superpos(2,3,b)"
+          ]
+        },
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(1,3,c)", "collapsed(2,1,a)", "collapsed(2,3,b)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        }
+      ]
+    },
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "collapsed(1,1,a)", "collapsed(1,2,b)", "collapsed(1,3,c)", "collapsed(2,1,a)", "collapsed(2,2,a)", "collapsed(2,3,b)", "superpos(1,1,a)", "superpos(1,2,b)", "superpos(1,3,c)", "superpos(2,1,a)", "superpos(2,2,a)", "superpos(2,3,b)"
+          ]
+        }
+      ]
+    }
+  ],
+  "Result": "SATISFIABLE",
+  "Models": {
+    "Number": 107,
+    "More": "no"
+  },
+  "Calls": 6,
+  "Time": {
+    "Total": 0.043,
+    "Solve": 0.037,
+    "Model": 0.000,
+    "Unsat": 0.002,
+    "CPU": 0.047
+  }
+}
