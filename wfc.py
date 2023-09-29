@@ -54,6 +54,18 @@ class WFC(Application):
                     Number(1), Number(1),
                     Function("a")
                 ]), True)
+        
+        ctl.assign_external(
+                Function("collapsed", [
+                    Number(3), Number(3),
+                    Function("b")
+                ]), True)
+        
+        ctl.assign_external(
+                Function("collapsed", [
+                    Number(4), Number(2),
+                    Function("b")
+                ]), True)
 
         # final_model = None
         iteration = 1
@@ -101,4 +113,4 @@ class WFC(Application):
         # print(ctl.statistics)
             
 
-clingo_main(WFC(3, 2), sys.argv[1:] + ["0", "--outf=2"])
+clingo_main(WFC(4, 4), sys.argv[1:] + ["0", "--outf=2"])
