@@ -6,128 +6,61 @@
 % a b b
 % a b c
 
-state(a; b; c).
+% pattern symbols/identifiers
+pattern(a; b; c).
 
-% rules formulation based on image
-rule(a, offset(0, 1), a).
-rule(a, offset(0, 1), b).
-rule(a, offset(0, -1), a).
-rule(a, offset(1, 0), a).
-rule(a, offset(1, 0), b).
-rule(a, offset(-1, 0), a).
+% based on input image, legal(DX, DY, P1, P2), 
+% a pattern P1 and P2 with offset (DX, DY) 
+% is a legal rule
+legal(0, 1, a, a).
+legal(0, 1, a, b).
+legal(0, -1, a, a).
+legal(1, 0, a, a).
+legal(1, 0, a, b).
+legal(-1, 0, a, a).
 
-rule(b, offset(0, 1), b).
-rule(b, offset(0, 1), c).
-rule(b, offset(0, -1), a).
-rule(b, offset(1, 0), b).
-rule(b, offset(1, 0), c).
-rule(b, offset(-1, 0), b).
-rule(b, offset(-1, 0), a).
+legal(0, 1, b, b).
+legal(0, 1, b, c).
+legal(0, -1, b, a).
+legal(0, -1, b, b).
+legal(1, 0, b, b).
+legal(1, 0, b, c).
+legal(-1, 0, b, a).
+legal(-1, 0, b, b).
 
-rule(c, offset(0, -1), b).
-rule(c, offset(-1, 0), b).
+legal(0, -1, c, b).
+legal(-1, 0, c, b).
 
-% initial
-#external assigned(R, C, S, T) : R = 1..height, C = 1..width, state(S), T = 0..max_time.
+cell(X, Y) :- X = 1..width, Y = 1..height.
 
-cell(R, C) :- R = 1..height, C = 1..width.
+% initial 
+#external assigned(X, Y, P, T) : cell(X, Y), pattern(P), T = 0..max_time.
+
 
 #program step(t).
 
-% assigned(R, C, S, t) :- assigned(R, C, S, t-1).
+% for each assigned cell at t-1, derive all 
+% legal super positions at time t
+superpos(X+DX, Y+DY, P', t) :- 
+        assigned(X, Y, P, t-1), 
+        legal(DY, DX, P, P'), 
+        not assigned(X+DX, Y+DY, _, _),
+        cell(X+DX, Y+DY).
 
-superpos(R+DY, C+DX, S', t) :- 
-        assigned(R, C, S, t-1), 
-        rule(S, offset(DY, DX), S'), 
-        not assigned(R+DY, C+DX, _, _),
-        cell(R+DY, C+DX).
+% inertia
+superpos(X, Y, P, t) :- superpos(X, Y, P, t-1).
 
-superpos(R, C, S, t) :- superpos(R, C, S, t-1).
+% Count number of super positions for each cell
+superpos_count(X, Y, N, t) :- 
+        superpos(X, Y, _, t), 
+        N = #count{ P : superpos(X, Y, P, t) }.
 
-superpos_count(R, C, N, t) :- 
-        superpos(R, C, _, t), 
-        N = #count{ S : superpos(R, C, S, t) }.
-
-least_entropy(R, C, S, t) :- 
-        superpos(R, C, S, t), 
-        superpos_count(R, C, M, t), 
-        M = #min{ N : superpos_count(R1, C1, N, t) }, 
+% derive minimal super position count at time step t
+least_entropy(X, Y, P, t) :- 
+        superpos(X, Y, P, t), 
+        superpos_count(X, Y, M, t), 
+        M = #min{ N : superpos_count(X1, Y1, N, t) }, 
         M != 0.
 
 #show assigned/4.
-#show superpos(R, C, S) : superpos(R, C, S, t).
-
-% assigned(2,2,b,0) 
-% assigned(2,1,a,1) 
-% assigned(1,1,a,2) 
-% assigned(1,2,a,3) 
-% assigned(1,3,a,4) 
-% assigned(2,3,a,5) 
-% assigned(2,4,a,6) 
-% assigned(1,4,a,7)
-
-% #show superpos_count/4.
-% #show least_entropy/4.
-
-% #script(python)
-
-% from clingo.symbol import Number, Function
-
-% def get_least_entropy(model, t):
-
-%     for atom in model.symbols(atoms=True):
-%         if atom.match("least_entropy", 4) and atom.arguments[3].number == t:
-            
-%             r = atom.arguments[0].number
-%             c = atom.arguments[1].number
-            
-%             s = atom.arguments[2].name
-
-%             return (r, c, s)
-
-% def main(prg):
-
-%     width = 4
-%     height = 2
-%     iters = width*height
-
-%     prg.ground([("base", [Number(height), Number(width), Number(iters-1)])])
-    
-%     # initialize
-%     prg.assign_external(
-%         Function("assigned", [
-%             Number(2), Number(2),
-%             Function("b"), Number(0)
-%         ]), True)
-
-%     prg.assign_external(
-%         Function("assigned", [
-%             Number(1), Number(1),
-%             Function("a"), Number(2)
-%         ]), True)
-    
-%     prg.solve()
-
-%     return
-
-%     # iteration
-%     for i in range(1, iters):
-
-%         prg.ground([("step", [Number(i)])])
-%         r, c, s = 0, 0, ""
-%         with prg.solve(yield_=True) as handle:
-            
-%             for model in handle:    
-%                 r, c, s = get_least_entropy(model, i)
-
-%         print(r, c, s, i)
-
-%         prg.assign_external(
-%             Function("assigned", [
-%                 Number(r), Number(c),
-%                 Function(s), Number(i)
-%             ]), True)
-    
-%     prg.solve()
-
-% #end.
+#show superpos(X, Y, P) : superpos(X, Y, P, t).

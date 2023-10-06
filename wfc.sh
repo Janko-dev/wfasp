@@ -1,4 +1,4 @@
 
 cd "$(dirname "$0")"
 
-python src/wfc_new.py src/test_new.lp
+python src/multishot_wfc.py src/multishot_wfc.lp

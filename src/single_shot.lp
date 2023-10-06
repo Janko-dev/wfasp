@@ -145,7 +145,7 @@ adj(X1, Y1, X2, Y2, DX, DY) :-
 % every pattern must be present at least 1 times
 % :- pattern(P), not 1 { assign(X,Y,P):cell(X,Y) }.
 
-assign(1,1,c).
+% assign(1,1,c).
 
 % the top left corner and the bottom right corner must be connected
 % :- not connected((1, 1), (m, n)).

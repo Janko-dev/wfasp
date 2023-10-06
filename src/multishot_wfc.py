@@ -8,16 +8,20 @@ from clingo.solving import Model
 import random
 import math
 
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap 
+
 class WFC(Application):
     program_name = "WaveFunctionCollapse"
     version = "1.0"
 
-    def __init__(self, height, width):
+    def __init__(self, width, height):
         self.width = width
         self.height = height
-        self._r = 0
-        self._c = 0
-        self._s = ""
+        self._x = 0
+        self._y = 0
+        self._p = ""
         self._t = 0
 
     def get_least_entropy(self, model):
@@ -34,10 +38,10 @@ class WFC(Application):
         
         if len(least_entropy) == 0: return
 
-        (r, c, s) = random.choice(least_entropy)
-        self._r = r
-        self._c = c
-        self._s = s
+        (x, y, p) = random.choice(least_entropy)
+        self._x = x
+        self._y = y
+        self._p = p
     
     def main(self, prg: Control, files: Sequence[str]):
 
@@ -68,16 +72,35 @@ class WFC(Application):
             
             prg.solve(on_model=self.get_least_entropy)
 
-            print(self._r, self._c, self._s, i)
+            print(self._x, self._y, self._p, i)
 
             prg.assign_external(
                 Function("assigned", [
-                    Number(self._r), Number(self._c),
-                    Function(self._s), Number(i)
+                    Number(self._x), Number(self._y),
+                    Function(self._p), Number(i)
                 ]), True)
         
-        prg.solve()
-            
+        
+        prg.solve(on_model=self.visualize)
 
-clingo_main(WFC(2, 2), sys.argv[1:] + ["0"])
+    def visualize(self, model: Model):
+        colors = {
+            "a": [0., 0., 0.], 
+            "b": [1., 1., 1.], 
+            "c": [1, 0., 0.]
+        }
+        
+        SCALE = 100
+        grid = np.zeros((self.width*SCALE, self.height*SCALE, 3))
+
+        for atom in model.symbols(shown=True):
+            x = atom.arguments[0].number - 1
+            y = atom.arguments[1].number - 1
+            p = atom.arguments[2].name
+            grid[x*SCALE:(x+1)*SCALE, y*SCALE:(y+1)*SCALE, :] = colors[p]
+
+        # print(grid)
+        plt.imsave("img.png", grid)
+
+clingo_main(WFC(5, 5), sys.argv[1:] + ["0"])
 
