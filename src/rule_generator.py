@@ -37,20 +37,41 @@ for i in range(len(grid)):
 
         patterns.add(grid[i][j])
 
+        # for k in range(-1, 2):
+        #     for l in range(-1, 2):
+        #         dx = (i+k)%width
+        #         dy = (j+l)%height
+        #         rules.add(Rule(grid[i][j], grid[dx][dy], (k, l)))
+            
+
+        # rules.add(Rule(grid[i][j], grid[(i-1)%width][j], (0, -1)))
+        # rules.add(Rule(grid[i][j], grid[(i+1)%width][j], (0, 1)))
+        # rules.add(Rule(grid[i][j], grid[i][j], (0, -1)))
+        # rules.add(Rule(grid[i][j], grid[(i-1)%width][j], (0, -1)))
+
         if i - 1 >= 0:
             rules.add(Rule(grid[i][j], grid[i-1][j], (0, -1)))
-        if i + 1 < height:
+        if i + 1 < width:
             rules.add(Rule(grid[i][j], grid[i+1][j], (0, 1)))
         if j - 1 >= 0:
             rules.add(Rule(grid[i][j], grid[i][j-1], (-1, 0)))
-        if j + 1 < width:
+        if j + 1 < height:
             rules.add(Rule(grid[i][j], grid[i][j+1], (1, 0)))
+
+        if i - 1 >= 0 and j - 1 >= 0:
+            rules.add(Rule(grid[i][j], grid[i-1][j-1], (-1, -1)))
+        if i + 1 < width and j - 1 >= 0:
+            rules.add(Rule(grid[i][j], grid[i+1][j-1], (1, -1)))
+        if i - 1 >= 0 and j + 1 < height:
+            rules.add(Rule(grid[i][j], grid[i-1][j-1], (-1, 1)))
+        if i + 1 < width and j + 1 < height:
+            rules.add(Rule(grid[i][j], grid[i-1][j-1], (1, 1)))
         
 
-f = open(f"{data['file_name']}.lp", "w")
+f = open(f"src/{data['file_name']}.lp", "w")
 
-
-output = "\n".join(map(lambda rule: rule.__repr__(), rules))
+output = "#program rules.\n"
+output += "\n".join(map(lambda rule: rule.__repr__(), rules))
 output += "\n\n" + "\n".join([f"pattern({s})." for s in patterns])
 print(output)
 

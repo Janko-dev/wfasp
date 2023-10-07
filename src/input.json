@@ -1,0 +1,9 @@
+{
+    "file_name": "simple_rules",
+    "sample": [
+        ["a", "a", "a", "a"],
+        ["a", "b", "b", "b"],
+        ["a", "b", "c", "b"],
+        ["a", "b", "b", "b"]
+    ]
+}
