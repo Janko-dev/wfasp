@@ -4,6 +4,8 @@ from clingo.application import Application, clingo_main
 from clingo.control import Control
 from clingo.symbol import Number, Function
 from clingo.solving import Model
+from cProfile import Profile
+from pstats import SortKey, Stats
 
 import random
 import math
@@ -66,8 +68,7 @@ class WFC(Application):
 
         prg.assign_external(
             Function("assigned", [
-                Number(1), 
-                Number(1),
+                Number(2), Number(1),
                 Function("", [
                     Function("", [Function("a"), Function("a")]), 
                     Function("", [Function("a"), Function("b")])
@@ -104,7 +105,7 @@ class WFC(Application):
         }
         
         SCALE = 100
-        grid = np.zeros((self.width*SCALE, self.height*SCALE, 3))
+        grid = np.zeros((self.height*SCALE, self.width*SCALE, 3))
 
         for atom in model.symbols(shown=True):
             x = atom.arguments[0].number - 1
@@ -126,5 +127,12 @@ class WFC(Application):
 # clingo_args = ["0", "--outf=3"]
 clingo_args = ["0"]
 
-clingo_main(WFC(6, 6), sys.argv[1:] + clingo_args)
+with Profile() as profile:
+    clingo_main(WFC(8, 8), sys.argv[1:] + clingo_args)
+    (
+        Stats(profile)
+        .strip_dirs()
+        .sort_stats(SortKey.CUMULATIVE)
+        .print_stats()
+    )
 

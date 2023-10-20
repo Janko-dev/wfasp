@@ -56,7 +56,25 @@ legal(0, 1, ((b, b), (c, b)), ((c, b), (b, b))).
 legal(-1, 0, Right, Left) :- legal(1, 0, Left, Right).
 legal(0, -1, Down, Up) :- legal(0, 1, Up, Down).
 
-% legal(1, 0, ((P1, P2), (P3, P4)), ((P1, P2), (P3, P4)))
+% -90 degrees turn 
+legal(0, 1, ((P3, P1), (P4, P2)), ((P7, P5), (P8, P6))) :- legal(1, 0, ((P1, P2), (P3, P4)), ((P5, P6), (P7, P8))).
+
+% 90 degrees turn 
+legal(0, -1, ((P2, P4), (P1, P3)), ((P6, P8), (P5, P7))) :- legal(1, 0, ((P1, P2), (P3, P4)), ((P5, P6), (P7, P8))).
+
+% 180 degrees turn 
+legal(-1, 0, ((P4, P3), (P2, P1)), ((P8, P7), (P6, P5))) :- legal(1, 0, ((P1, P2), (P3, P4)), ((P5, P6), (P7, P8))).
+
+
+
+% -90 degrees turn 
+legal(-1, 0, ((P3, P1), (P4, P2)), ((P7, P5), (P8, P6))) :- legal(0, 1, ((P1, P2), (P3, P4)), ((P5, P6), (P7, P8))).
+
+% 90 degrees turn 
+legal(1, 0, ((P2, P4), (P1, P3)), ((P6, P8), (P5, P7))) :- legal(0, 1, ((P1, P2), (P3, P4)), ((P5, P6), (P7, P8))).
+
+% 180 degrees turn 
+legal(0, -1, ((P4, P3), (P2, P1)), ((P8, P7), (P6, P5))) :- legal(0, 1, ((P1, P2), (P3, P4)), ((P5, P6), (P7, P8))).
 
 pattern(P) :- legal(_, _, P, _).
 pattern(P) :- legal(_, _, _, P).

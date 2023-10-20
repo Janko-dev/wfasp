@@ -6,31 +6,6 @@
 % a b b
 % a b c
 
-% pattern symbols/identifiers
-% pattern(a; b; c).
-
-% based on input image, legal(DX, DY, P1, P2), 
-% a pattern P1 and P2 with offset (DX, DY) 
-% is a legal rule
-% legal(0, 1, a, a).
-% legal(0, 1, a, b).
-% legal(0, -1, a, a).
-% legal(1, 0, a, a).
-% legal(1, 0, a, b).
-% legal(-1, 0, a, a).
-
-% legal(0, 1, b, b).
-% legal(0, 1, b, c).
-% legal(0, -1, b, a).
-% legal(0, -1, b, b).
-% legal(1, 0, b, b).
-% legal(1, 0, b, c).
-% legal(-1, 0, b, a).
-% legal(-1, 0, b, b).
-
-% legal(0, -1, c, b).
-% legal(-1, 0, c, b).
-
 cell(X, Y) :- X = 1..width, Y = 1..height.
 
 % initial 
@@ -43,7 +18,7 @@ cell(X, Y) :- X = 1..width, Y = 1..height.
 % legal super positions at time t
 superpos(X+DX, Y+DY, P', t) :- 
         assigned(X, Y, P, t-1), 
-        legal(DY, DX, P, P'), 
+        legal(DX, DY, P, P'), 
         not assigned(X+DX, Y+DY, _, _),
         cell(X+DX, Y+DY).
 
