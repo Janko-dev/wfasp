@@ -90,23 +90,22 @@ superpos_count(C, N) :-
         superpos(C, _), 
         N = #count{ P : superpos(C, P) }.
 
-% Compute the super positions with the least entropy
+% Compute the super positions with the lowest entropy
 % i.e., the super positions of the cell that has the 
 % fewest occurrences 
-least_entropy(C, P) :- 
+lowest_entropy(C, P, W) :- 
         superpos(C, P), 
         superpos_count(C, M),
-        M = #min{ N : superpos_count(C1, N) }, 
-        pattern_weight(P, L),
-        L = #min{ W : pattern_weight(P, W) },
+        pattern_weight(P, W),
+        M = #min{ N : superpos_count(C1, N) },
         M != 0.
 
-#show least_entropy/2.
+#show lowest_entropy/3.
 #show assigned/2.
 
 #program input.
 
 % initial state
-% assigned((2, 2), (cross, 0)).
-% assigned((3, 1), (cross, 0)).
-% assigned((1, 1), (v_line, 0)).
+% force(3, 3, (cross, 0)).
+% force(4, 1, (cross, 0)).
+% force(1, 1, (v_line, 0)).

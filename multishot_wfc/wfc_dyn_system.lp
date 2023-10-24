@@ -1,5 +1,5 @@
 % Waver Function Collapse as a dynamic system. 
-% This implementation is deprecated due to the fact that it is very slo
+% This implementation is deprecated due to the fact that it is very slow
 % in terms of grounding. Every time de sub-program step(t) is called,
 % all rules need to be regrounded for the specific time step
 

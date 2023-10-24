@@ -1,3 +1,4 @@
+from pstats import Stats
 import sys
 from typing import Sequence
 from clingo import Symbol
@@ -60,14 +61,13 @@ def write_tile_to_buf(atom: Symbol, grid: np.ndarray, folder_path: str, scale: i
         grid[y*scale:(y+1)*scale, x*scale:(x+1)*scale, :] = tile
 
 # clingo_args = ["0", "--outf=3"]
-clingo_args = ["1"]
+clingo_args = ["1", "--outf=3"]
 
 with Profile() as profile:
-    clingo_main(WFC(10, 10), sys.argv[1:] + clingo_args)
-    # (
-    #     Stats(profile)
-    #     .strip_dirs()
-    #     .sort_stats(SortKey.TIME)
-    #     .print_stats()
-    # )
-
+    clingo_main(WFC(4, 4), sys.argv[1:] + clingo_args)
+    (
+        Stats(profile)
+        .strip_dirs()
+        .sort_stats("tottime")
+        .print_stats(10)
+    )
