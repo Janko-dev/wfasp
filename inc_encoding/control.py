@@ -22,7 +22,7 @@ class WFC(Application):
     def __init__(self, width: int, height: int, tileset_path: str, scale: int, n: int = 1):
         self.padx = width % n
         self.pady = height % n
-        print(self.padx, self.pady)
+        # print(self.padx, self.pady)
         self.width = width
         self.height = height
         self._x = 0
@@ -144,14 +144,15 @@ class WFC(Application):
         (x, y) = atom.arguments[0].arguments
         x = x.number - 1
         y = y.number - 1
-        pattern = [0, 0, 0, 0]
+        pattern = 0
 
         if len(atom.arguments[1].arguments) == 2 and self.tileset_path and atom.arguments[1].arguments[0].name != "":
             # tile pattern (tile, rot)
             tile_name, rot = atom.arguments[1].arguments
             tile = plt.imread(self.tileset_path+tile_name.name+".png")
             tile = np.rot90(tile, rot.number)
-            pattern = tile
+            pattern = (tile * 255).astype("uint8")
+            
         elif len(atom.arguments[1].arguments) == 4:
             # pixel pattern (R, G, B, A)
             r, g, b, a = atom.arguments[1].arguments
@@ -163,7 +164,6 @@ class WFC(Application):
             pattern = data_resized
 
         grid[y*self.scale:(y+1)*self.scale, x*self.scale:(x+1)*self.scale, :] = pattern
-
 
     def write_superpos(self, atom: Symbol, grid: np.ndarray, counts: dict[tuple[int]]):
         
@@ -181,7 +181,8 @@ class WFC(Application):
             tile_name, rot = atom.arguments[1].arguments
             tile = plt.imread(self.tileset_path+tile_name.name+".png")
             tile = np.rot90(tile, rot.number)
-            pattern = tile
+            pattern = (tile * 255).astype("uint8")
+
         elif len(atom.arguments[1].arguments) == 4:
             # pixel pattern (R, G, B, A)
             r, g, b, a = atom.arguments[1].arguments

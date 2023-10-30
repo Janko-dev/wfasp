@@ -11,9 +11,9 @@ import argparse
 
 class Rule:
     def __init__(self, base, neighbour, dir):
-        self.base = base
+        self.base = tuple(tuple(tuple(int(m*255) for m in k) for k in l) for l in base)
         self.neighbour = tuple(tuple(tuple(int(m*255) for m in k) for k in l) for l in neighbour)
-        self.dir = dir
+        self.dir = tuple(dir)
     
     def __repr__(self) -> str:
         return f"legal(({self.dir[0]}, {self.dir[1]}), {self.base}, {self.neighbour})."
@@ -26,6 +26,16 @@ class Rule:
                 (self.base == other.base) and 
                 (self.neighbour == other.neighbour) and 
                 (self.dir == other.dir))
+    
+    @staticmethod
+    def create_orientation(base, neighbour, dir):
+        dir = np.array(dir)
+        rot = np.array([[0, -1], [1, 0]])
+        return [Rule(
+            np.rot90(base, axes=(1, 0), k=i), 
+            np.rot90(neighbour, axes=(1, 0), k=i), 
+            np.linalg.matrix_power(rot, i) @ dir) 
+            for i in range(1, 5)]
 
 def generate_rules(file_path, n):
 
@@ -39,32 +49,10 @@ def generate_rules(file_path, n):
     width = img.shape[0]
     height = img.shape[1]
 
-    # for j in range(height):
-    #     for i in range(width):
-
-    #         col = tuple(int(k*255) for k in img[i][j])
-    #         if col not in patterns: patterns[col] = 1
-    #         else: patterns[col] += 1
-
-    #         if i - 1 >= 0:
-    #             rules.add(Rule(img[i][j], img[i-1][j], (0, -1)))
-    #         if i + 1 < width:
-    #             rules.add(Rule(img[i][j], img[i+1][j], (0, 1)))
-    #         if j - 1 >= 0:
-    #             rules.add(Rule(img[i][j], img[i][j-1], (-1, 0)))
-    #         if j + 1 < height:
-    #             rules.add(Rule(img[i][j], img[i][j+1], (1, 0)))
-
-            # for k in range(-1, 2):
-            #     for l in range(-1, 2):
-            #         if k == 0 and l == 0: continue
-            #         dx = (i+k)%width
-            #         dy = (j+l)%height
-            #         # print((i, j), (dx, dy), (k, l), width, height)
-            #         rules.add(Rule(img[i][j], img[dx][dy], (k, l)))
-
     for j in range(0, height, n):
         for i in range(0, width, n):
+    # for j in range(0, height-n):
+    #     for i in range(0, width-n):
             win = img[i:i+n, j:j+n]
             if win.shape[0] != n or win.shape[1] != n: continue
             
@@ -75,19 +63,23 @@ def generate_rules(file_path, n):
             if i - n >= 0:
                 nbr = img[i-n:i, j:j+n]
                 if nbr.shape[0] != n or nbr.shape[1] != n: continue
-                rules.add(Rule(pat, nbr, (0, -1)))
+                for r in Rule.create_orientation(win, nbr, [0, -1]):
+                    rules.add(r)
             if i + n < width:
                 nbr = img[i+n:i+2*n, j:j+n]
                 if nbr.shape[0] != n or nbr.shape[1] != n: continue
-                rules.add(Rule(pat, nbr, (0, 1)))
+                for r in Rule.create_orientation(win, nbr, [0, 1]):
+                    rules.add(r)
             if j - n >= 0:
                 nbr = img[i:i+n, j-n:j]
                 if nbr.shape[0] != n or nbr.shape[1] != n: continue
-                rules.add(Rule(pat, nbr, (-1, 0)))
+                for r in Rule.create_orientation(win, nbr, [-1, 0]):
+                    rules.add(r)
             if j + n < height:
                 nbr = img[i:i+n, j+n:j+2*n]
                 if nbr.shape[0] != n or nbr.shape[1] != n: continue
-                rules.add(Rule(pat, nbr, (1, 0)))
+                for r in Rule.create_orientation(win, nbr, [1, 0]):
+                    rules.add(r)
 
     file_name = file_path.split("/")[-1][:-4]
     f = open(f"{file_name}_rules.lp", "w")
