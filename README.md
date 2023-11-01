@@ -3,6 +3,8 @@
 
 This repo contains an Answer Set Programming (ASP) based implementation of the Wave Function Collapse (WFC) algorithm. The ASP grounder and solver `clingo` is used, which enables multi-shot solving capabilities. This feature allows for logic programs to interact with the external world via a (Python) API. The implementation consists of a combinatorial logic encoding that utilises choice constructs and integrity constraints, and an incremental-solving encoding, which solves small increments of the problem in an iterative procedure.
 
+https://github.com/Janko-dev/wfcasp/blob/main/examples/demo_simple_tiles_16x16.mp4
+
 ## Quick start
 
 ```
